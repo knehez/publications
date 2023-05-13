@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Display</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        td.name {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Number of Publications</th>
+            <th>Publications</th>
+        </tr>
+        {% for key, value in authors.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td class="name">{{ value['name'] }}</td>
+            <td>{{ value['numOfPublications'] }}</td>
+            <td>{{ value['pubs'] | join('<br/>') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
